@@ -16,15 +16,15 @@ public class Main {
 
         // conditions
 
-//        String role;
-//        System.out.print("Enter your role: ");
-//        role = input.nextLine();
-//
-//        if(role.equals("Admin")) {
-//            System.out.println("Hello Admin");
-//        } else {
-//            System.out.println("Hello");
-//        }
+        String role;
+        System.out.print("Enter your role: ");
+        role = input.nextLine();
+
+        if(role.equals("Admin")) {
+            System.out.println("Hello Admin");
+        } else {
+            System.out.println("Hello");
+        }
 
 
         System.out.print("Enter your grade: ");
