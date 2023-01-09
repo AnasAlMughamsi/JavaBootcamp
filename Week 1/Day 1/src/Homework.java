@@ -43,7 +43,7 @@ public class Homework {
         // Q5. check role
         String role;
         System.out.print("Q5. check the role\n Enter your role: ");
-        role = input.nextLine();
+        role = input.next();
 
         if(role.equals("Admin") || role.equals("admin")) {
             System.out.println("welcome admin");
@@ -71,7 +71,7 @@ public class Homework {
 // ======================================================================================== //
     // Q7. the greatest number
         int n1, n2, n3;
-        System.out.println("Q7. check the greatest number\nEnter first number: \" ");
+        System.out.println("Q7. check the greatest number\nEnter first number: ");
         n1 = input.nextInt();
         System.out.print("Enter second number: ");
         n2 = input.nextInt();
