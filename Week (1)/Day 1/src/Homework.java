@@ -21,7 +21,10 @@ public class Homework {
 //        // Q2. String methods
         System.out.println("Q2. lower case the string");
         String text = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.";
-        System.out.println(text.toLowerCase());
+
+        String textInput = input.next();
+        textInput += input.nextLine();
+        System.out.println(textInput.toLowerCase());
 
 // ======================================================================================== //
 
