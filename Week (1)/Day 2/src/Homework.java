@@ -30,8 +30,12 @@ public class Homework {
 
         // Q3. String reverse  -- for tomorrow 1/10/2023
 //        System.out.println("Q3. Reverse the String");
-//        String text2 = "The quick brown fox";
-
+            String originalText = "Anas";
+            String reverseString = "";
+        for (int i = originalText.length()-1; i >= 0 ; i--) {
+            reverseString += originalText.toCharArray()[i];
+        }
+        System.out.println("reverse Text: " + reverseString);
 // ======================================================================================== //
         // Q4. Check is even or not
         System.out.println("Q4. check the even number");
