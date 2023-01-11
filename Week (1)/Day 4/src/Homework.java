@@ -5,13 +5,6 @@ public class Homework {
         Scanner input = new Scanner(System.in);
         // ========================== Q1 - first-last element is same ==========================
         System.out.println("========================== Q1- first-last element ==========================");
-//        ArrayList<Integer> array = new ArrayList<Integer>();
-//        array.add(50);
-//        array.add(-20);
-//        array.add(0);
-//        array.add(30);
-//        array.add(60);
-//        array.add(10);
 
         int[] arr = {50,-20,0,30,60,10};
         int firstNum = arr[0];
@@ -114,7 +107,7 @@ public class Homework {
             }
         }
 
-// ========================== Q7 - three largest numbers ==========================
+// ========================== Q7 - menu  ==========================
         // NOT DONE
 //        System.out.println("========================== Q7 ==========================");
 //        System.out.println("** Welcome to the menu of array **");
@@ -152,7 +145,7 @@ public class Homework {
 //        System.out.println("Size of array :" + sizeOfArray);
 //        System.out.println(Arrays.toString(array));
 
-// ========================== Q8 - three largest numbers ==========================
+// ========================== Q8 - occurrences elements ==========================
         // NOT DONE ??
         System.out.println("========================== Q8 ==========================");
 //        System.out.print("Enter the size of an array: ");
@@ -174,7 +167,7 @@ public class Homework {
 //            }
 //        }
 //        System.out.println(count);
-// ========================== Q9 - three largest numbers ==========================
+// ========================== Q9 - odd/even ==========================
         System.out.println("========================== Q9 ==========================");
         int[] oddEvenArray = {2,3,40,1,5,9,4,10,7};
 
