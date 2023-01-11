@@ -23,17 +23,8 @@ public class Homework {
 
 // ========================== Q2 - three largest numbers ==========================
 
-        // NOT DONE !! //
-        System.out.println("========================== Q2 ========================== ");
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        arrayList.add(1);
-        arrayList.add(4);
-        arrayList.add(17);
-        arrayList.add(7);
-        arrayList.add(25);
-        arrayList.add(3);
-        arrayList.add(100);
 
+        System.out.println("========================== Q2 ========================== ");
 
         Integer[] kArray = {1, 4, 17, 7, 25, 3, 100};
         Arrays.sort(kArray, Collections.reverseOrder());
@@ -47,6 +38,11 @@ public class Homework {
 
 // ========================== Q3 - number greater then average ==========================
         System.out.println("========================== Q3 ==========================");
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(1); arrayList.add(4);
+        arrayList.add(17); arrayList.add(7);
+        arrayList.add(25); arrayList.add(3);
+        arrayList.add(100);
         int average = 0;
         int sum = 0;
         int length = arrayList.size();
