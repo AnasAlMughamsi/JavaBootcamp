@@ -173,9 +173,9 @@ public class Homework {
 
         int oddSize = 0;
         int evenSize = 0;
-        // first in this loop it just to find how many
+        // first in this loop it is just to find how many
         // even/odd number we have, then take is the size of two array
-        // one as even array [evenSize] and the another as odd array [oddSize]
+        // one as even array [evenSize] and the other as odd array [oddSize]
         for (int i = 0; i < oddEvenArray.length; i++) {
             if(oddEvenArray[i] % 2 == 0) {
                 evenSize++;
@@ -186,11 +186,13 @@ public class Homework {
 
         int[] oddArray = new int[oddSize];
         int[] evenArray = new int[evenSize];
-        int evlength = oddSize + evenSize;
-        int[] newArray = new int[evlength];
+        int evLength = oddSize + evenSize;
+        int[] newArray = new int[evLength];
 
         int e = 0, o = 0;
         // create two array even/odd
+        // insert even/odd number from original array to
+        // even array and odd array separately
         for (int i = 0; i < oddEvenArray.length; i++) {
             if(oddEvenArray[i] % 2 == 0) {
                 evenArray[e++] = oddEvenArray[i];
@@ -199,11 +201,13 @@ public class Homework {
             }
         }
 
-        int position=0;
+        int position = 0;
         for (int element: oddArray) {
             newArray[position] = element;
             position++;
         }
+        System.out.println("position after for each array - odd: " + position);
+        // newArray = {oddArray} ==> {3, 1, 5, 9, 7}
         for (int element: evenArray) {
             newArray[position] = element;
             position++;
