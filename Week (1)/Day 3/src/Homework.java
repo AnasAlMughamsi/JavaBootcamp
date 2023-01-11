@@ -37,7 +37,6 @@ public class Homework {
         System.out.println("==================== Q4 - factorial ====================");
         System.out.print("Enter any number to find the factorial of it: ");
         int fac = input.nextInt();
-
         for (int i = fac-1; i > 0; i--) {
             fac =  fac * i;
         }
