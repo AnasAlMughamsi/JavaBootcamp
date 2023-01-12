@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Homework {
     public static void main(String[] args) {
@@ -115,8 +117,10 @@ public class Homework {
 //        int arrayLength = input.nextInt();
 ////        ArrayList<Integer> occurrencesList = new ArrayList<Integer>();
 //        int[] occurrencesArray = new int[arrayLength];
-////        int[] occurrencesArray = {1,1,2,2,3,5};
-//
+        int[] occurrencesArray = {1,1,2,2,3,5};
+//        Arrays.stream(occurrencesArray)
+//                .collect(Collectors.groupingBy(s -> s))
+//                        .forEach()
 //        // inset element inside of array by user
 //        for (int i = 0; i < arrayLength; i++) {
 //            occurrencesArray[i] = input.nextInt();
@@ -130,6 +134,8 @@ public class Homework {
 //            }
 //        }
 //        System.out.println(count);
+
+
 // ========================== Q9 - odd/even ==========================
         System.out.println("========================== Q9 ==========================");
         int[] oddEvenArray = {2,3,40,1,5,9,4,10,7};
