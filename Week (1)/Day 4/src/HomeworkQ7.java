@@ -62,33 +62,5 @@ public class HomeworkQ7 {
             }
         }
 
-//        if(selection.equals("a")) {
-//            System.out.print("Please enter the size of array you want: ");
-//            sizeOfArray = input.nextInt();
-////            sizeOfArray = 6;
-//            array = new int[sizeOfArray];
-//            for (int i = 0; i < sizeOfArray; i++) {
-//                System.out.print("\nInsert an element: ");
-////                int inputElement = input.nextInt();
-//                array[i] = input.nextInt();
-//            }
-//        }
-//          display the array
-//        if(selection.equals("b")) {
-////            if(array.length == 0 ) {
-////                System.out.println("Array is empty");
-////            }
-////            for (int i = 0; i < array.length; i++) {
-////                System.out.println(Arrays.toString(array));
-////            }
-//        }
-//        if(selection.equals("c")) {
-//            System.out.println("Searching for an element in array...");
-//        }
-//        if(selection.equals("d")) {
-//            Arrays.sort(array);
-//            System.out.println(Arrays.toString(array));
-//        }
-//        System.out.println(Arrays.toString(array));
     }
 }
