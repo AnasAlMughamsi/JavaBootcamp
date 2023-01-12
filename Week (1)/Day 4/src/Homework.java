@@ -137,7 +137,7 @@ public class Homework {
         int oddSize = 0;
         int evenSize = 0;
         // first in this loop it is just to find how many
-        // even/odd number we have, then take is the size of two array
+        // even/odd number we have, then take is the size of a new two array
         // one as even array [evenSize] and the other as odd array [oddSize]
         for (int i = 0; i < oddEvenArray.length; i++) {
             if(oddEvenArray[i] % 2 == 0) {
@@ -154,7 +154,7 @@ public class Homework {
 
         int e = 0, o = 0;
         // create two array even/odd
-        // insert even/odd number from original array to
+        // insert even/odd numbers from original array to
         // even array and odd array separately
         for (int i = 0; i < oddEvenArray.length; i++) {
             if(oddEvenArray[i] % 2 == 0) {
