@@ -114,7 +114,7 @@ public class Question1 {
 //        System.out.println(myList);
         if(myList.contains(numberToCheck)) {
             System.out.println("---------------------------------");
-            System.out.println("number " +numberToCheck + " is exist in array !");
+            System.out.println("number " + numberToCheck + " is exist in array !");
             System.out.println("---------------------------------");
         } else {
             throw new Exception("Number not found in the array");
