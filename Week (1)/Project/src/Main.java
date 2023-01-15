@@ -5,9 +5,8 @@ public class Main {
     static ArrayList<Integer> playerPosition = new ArrayList<Integer>();
     static ArrayList<Integer> computerPosition = new ArrayList<Integer>();
     public static void main(String[] args) {
-
-        // I think I need to make it as an array !
-
+        Scanner input = new Scanner(System.in);
+        
         char [][] board = {
                 {' ','|',' ','|', ' '},
                 {'-','+','-','+', '-'},
@@ -20,12 +19,11 @@ public class Main {
         // computer player randomly
         // ** computer ** //
 
-        // I need a player to enter an input
         while (true) {
-            Scanner input = new Scanner(System.in);
-
             System.out.println("Player - enter an placement [1-9]: ");
             int playerPos = input.nextInt();
+
+            // need to check if the place is available or not
 
             while (playerPosition.contains(playerPos) || computerPosition.contains(playerPosition)) {
                 System.out.println("Position already taken, try again: ");
@@ -53,8 +51,6 @@ public class Main {
         }
 
 
-        // need to check if the place is available or not
-        // check the winner
 
     }
 
@@ -87,6 +83,8 @@ public class Main {
             case 9 -> board[4][4] = symbol;
         }
     }
+
+    // check the winner
 
     public static String checkWinner() {
         List<Integer> topRow = Arrays.asList(1,2,3);
