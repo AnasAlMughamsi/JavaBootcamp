@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Question2 {
 
     static ArrayList<Integer> playerPosition = new ArrayList<Integer>();
     static ArrayList<Integer> computerPosition = new ArrayList<Integer>();
@@ -50,7 +50,7 @@ public class Main {
             winner = checkWinner();
             if(winner.length() > 0 ) {
                 System.out.println(winner);
-                 break;
+                break;
             }
 
         }
