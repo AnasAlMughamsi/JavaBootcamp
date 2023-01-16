@@ -91,6 +91,9 @@ public class Question2 {
         while (true) {
             System.out.println("Where would you like to play? (1-9): ");
             playerPos = playerInput.nextInt();
+//            if(playerPos < 0 || playerPos > 9 ) {
+//                throw new Exception("Please enter between 0 and 9");
+//            }
             if(isValidMove(board, playerPos)) {
                 break;
             } else {
