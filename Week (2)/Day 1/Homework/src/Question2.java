@@ -17,25 +17,25 @@ public class Question2 {
         };
 
         printBoard(board);
-        // computer player randomly
-        // ** computer ** //
 
-        while (true) {
+        try {
+            while (true) {
             System.out.println("Player - enter an placement [1-9]: ");
-            try {
-                int playerPos = input.nextInt();
-
+                int playerPos;
+                playerPos = input.nextInt();
                 while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
                     System.out.println("Position already taken, try again: ");
                     playerPos = input.nextInt();
                 }
+                placePieces(board, playerPos, "Player");
+                printBoard(board);
 
                 String winner = checkWinner();
                 if(winner.length() > 0 ) {
                     System.out.println(winner);
-                    printBoard(board);
                     break;
                 }
+
                 Random random = new Random();
                 int computerInput = random.nextInt(9) + 1;
                 while (playerPosition.contains(computerInput) || computerPosition.contains(computerInput)) {
@@ -43,6 +43,7 @@ public class Question2 {
                 }
 
                 placePieces(board, computerInput, "Computer");
+                System.out.println("Computer play at: " + computerInput);
                 printBoard(board);
 
                 winner = checkWinner();
@@ -50,14 +51,10 @@ public class Question2 {
                     System.out.println(winner);
                     break;
                 }
-                placePieces(board, playerPos, "Player");
-
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter only numbers: ");
             }
-            // need to check if the place is available or not
-
-
+//                placePieces(board, playerPos, "Player");
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter only numbers: ");
         }
     }
 
