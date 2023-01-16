@@ -5,7 +5,7 @@ public class Question1 {
     public static void main(String[] args)  {
         System.out.println("** Welcome to the menu of array **");
         Integer[] array = {};
-        int sizeOfArray;
+        int sizeOfArray = 0;
 
         while (true) {
             System.out.println("\na. Create an array." +
@@ -14,11 +14,11 @@ public class Question1 {
                     "\nd. Sort the array." +
                     "\nq. to quit\n");
             System.out.print("Choose from a-q >> ");
+
             String selection = input.next();
             if (selection.equals("a")) {
-
-//                createArray(int sizeOfArray);
                 try {
+//                createArray(array, sizeOfArray);
                     System.out.print("Please enter the size of array you want: ");
                     sizeOfArray = input.nextInt();
                     array = new Integer[sizeOfArray];
@@ -32,8 +32,10 @@ public class Question1 {
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Please enter just numbers: ");
+//                } catch (Exception e) {
+//                    System.out.println(e.getMessage());
+//                }
                 }
-
             }
             // Display the array
             if(selection.equals("b")) {
@@ -52,15 +54,6 @@ public class Question1 {
                 } catch (Exception e) {
                     System.out.println("Please enter only numbers!");
                 }
-//                for (int i = 0; i < array.length; i++) {
-//                    if (array[i] == numberToSearch) {
-//                        System.out.println("number " + numberToSearch + " is exist in the array");
-//                        break;
-//                    } else {
-//                        System.out.println("Error");
-////                        throw new Exception("number you enter is not in the array");
-//                    }
-//                }
             }
             if(selection.equals("d")) {
                 try {
@@ -69,7 +62,6 @@ public class Question1 {
                     System.out.println(e.getMessage());
                 }
             }
-
             if(selection.equals("q")) {
                 System.exit(0);
             }
@@ -77,21 +69,7 @@ public class Question1 {
         }
     }
 
-    public static void createArray(int[] array, int sizeOfArray) {
-//        try {
-//            System.out.print("Please enter the size of array you want: ");
-//            array = new int[sizeOfArray];
-//            try {
-//                for (int i = 0; i < sizeOfArray; i++) {
-//                    System.out.print("\nInsert an element: ");
-//                    array[i] = input.nextInt();
-//                }
-//            } catch (InputMismatchException e) {
-//                System.out.println("Sorry, the array only except number of type int");
-//            }
-//        } catch (InputMismatchException e) {
-//            System.out.println("Please enter just numbers: ");
-//        }
+    public static void createArray(Integer[] array, int sizeOfArray) {
 
     }
     public static void displayArray(Integer[] array) throws Exception {

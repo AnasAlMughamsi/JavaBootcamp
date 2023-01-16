@@ -22,36 +22,41 @@ public class Question2 {
 
         while (true) {
             System.out.println("Player - enter an placement [1-9]: ");
-            int playerPos = input.nextInt();
+            try {
+                int playerPos = input.nextInt();
 
+                while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
+                    System.out.println("Position already taken, try again: ");
+                    playerPos = input.nextInt();
+                }
+
+                String winner = checkWinner();
+                if(winner.length() > 0 ) {
+                    System.out.println(winner);
+                    printBoard(board);
+                    break;
+                }
+                Random random = new Random();
+                int computerInput = random.nextInt(9) + 1;
+                while (playerPosition.contains(computerInput) || computerPosition.contains(computerInput)) {
+                    computerInput = random.nextInt(9) + 1;
+                }
+
+                placePieces(board, computerInput, "Computer");
+                printBoard(board);
+
+                winner = checkWinner();
+                if(winner.length() > 0 ) {
+                    System.out.println(winner);
+                    break;
+                }
+                placePieces(board, playerPos, "Player");
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter only numbers: ");
+            }
             // need to check if the place is available or not
 
-            while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
-                System.out.println("Position already taken, try again: ");
-                playerPos = input.nextInt();
-            }
-
-            placePieces(board, playerPos, "Player");
-            String winner = checkWinner();
-            if(winner.length() > 0 ) {
-                System.out.println(winner);
-                printBoard(board);
-                break;
-            }
-            Random random = new Random();
-            int computerInput = random.nextInt(9) + 1;
-            while (playerPosition.contains(computerInput) || computerPosition.contains(computerInput)) {
-                computerInput = random.nextInt(9) + 1;
-            }
-
-            placePieces(board, computerInput, "Computer");
-            printBoard(board);
-
-            winner = checkWinner();
-            if(winner.length() > 0 ) {
-                System.out.println(winner);
-                break;
-            }
 
         }
     }
@@ -63,6 +68,9 @@ public class Question2 {
             }
             System.out.println();
         }
+    }
+    public static void playerMove(char[][] board, int playerMovement) {
+
     }
     public static void placePieces(char[][] board, int position, String player) {
         char symbol = ' ';
