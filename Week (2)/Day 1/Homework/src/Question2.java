@@ -7,7 +7,6 @@ public class Question2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String[][] gameBoard;
-
         char [][] board = {
                 {' ','|',' ','|', ' '},
                 {'-','+','-','+', '-'},
@@ -15,13 +14,10 @@ public class Question2 {
                 {'-','+','-','+', '-'},
                 {' ','|',' ','|', ' '}
         };
-
         printBoard(board);
 
         try {
             while (true) {
-//            System.out.println("Player - enter an placement [1-9]: ");
-//                playerPos = input.nextInt();
                 int playerPos;
 
 //                while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
@@ -33,7 +29,6 @@ public class Question2 {
                 } catch (Exception e) {
                     System.out.println("ERROR !!");
                 }
-//                placePieces(board, playerPos, "Player");
                 printBoard(board);
                 String winner = checkWinner();
                 if(winner.length() > 0 ) {
@@ -86,12 +81,9 @@ public class Question2 {
                 break;
             }
         }
-
         placePieces(board, computerInput, "Computer");
         System.out.println("Computer play at: " + computerInput);
         printBoard(board);
-
-
     }
 
     public static void playerMove(char[][] board, Scanner playerInput) throws Exception {
