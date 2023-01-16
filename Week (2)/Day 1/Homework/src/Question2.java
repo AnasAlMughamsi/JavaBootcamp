@@ -20,31 +20,42 @@ public class Question2 {
 
         try {
             while (true) {
-            System.out.println("Player - enter an placement [1-9]: ");
+//            System.out.println("Player - enter an placement [1-9]: ");
+//                playerPos = input.nextInt();
                 int playerPos;
-                playerPos = input.nextInt();
-                while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
-                    System.out.println("Position already taken, try again: ");
-                    playerPos = input.nextInt();
-                }
-                placePieces(board, playerPos, "Player");
-                printBoard(board);
 
+//                while (playerPosition.contains(playerPos) || computerPosition.contains(playerPos)) {
+//                    System.out.println("Position already taken, try again: ");
+//                    playerPos = input.nextInt();
+//                }
+                try {
+                    playerMove(board, input);
+                } catch (Exception e) {
+                    System.out.println("ERROR !!");
+                }
+//                placePieces(board, playerPos, "Player");
+                printBoard(board);
                 String winner = checkWinner();
                 if(winner.length() > 0 ) {
                     System.out.println(winner);
                     break;
                 }
 
-                Random random = new Random();
-                int computerInput = random.nextInt(9) + 1;
-                while (playerPosition.contains(computerInput) || computerPosition.contains(computerInput)) {
-                    computerInput = random.nextInt(9) + 1;
+                try {
+                    setComputerPosition(board);
+                } catch (Exception e) {
+                    System.out.println("ERROR !!");
                 }
-
-                placePieces(board, computerInput, "Computer");
-                System.out.println("Computer play at: " + computerInput);
-                printBoard(board);
+//
+//                Random random = new Random();
+//                int computerInput = random.nextInt(9) + 1;
+//                while (playerPosition.contains(computerInput) || computerPosition.contains(computerInput)) {
+//                    computerInput = random.nextInt(9) + 1;
+//                }
+//
+//                placePieces(board, computerInput, "Computer");
+//                System.out.println("Computer play at: " + computerInput);
+//                printBoard(board);
 
                 winner = checkWinner();
                 if(winner.length() > 0 ) {
@@ -52,7 +63,6 @@ public class Question2 {
                     break;
                 }
             }
-//                placePieces(board, playerPos, "Player");
         } catch (InputMismatchException e) {
             System.out.println("Please enter only numbers: ");
         }
@@ -66,8 +76,36 @@ public class Question2 {
             System.out.println();
         }
     }
-    public static void playerMove(char[][] board, int playerMovement) {
 
+    public static void setComputerPosition(char[][] board) throws Exception {
+        Random random = new Random();
+        int computerInput;
+        while (true) {
+            computerInput = random.nextInt(9) + 1;
+            if(isValidMove(board, computerInput)) {
+                break;
+            }
+        }
+
+        placePieces(board, computerInput, "Computer");
+        System.out.println("Computer play at: " + computerInput);
+        printBoard(board);
+
+
+    }
+
+    public static void playerMove(char[][] board, Scanner playerInput) throws Exception {
+        int playerPos;
+        while (true) {
+            System.out.println("Where would you like to play? (1-9): ");
+            playerPos = playerInput.nextInt();
+            if(isValidMove(board, playerPos)) {
+                break;
+            } else {
+                System.out.println("place is not valid move!");
+            }
+        }
+        placePieces(board, playerPos, "Player");
     }
     public static void placePieces(char[][] board, int position, String player) {
         char symbol = ' ';
@@ -124,6 +162,21 @@ public class Question2 {
             }
         }
         return "";
+    }
+
+    private static boolean isValidMove (char[][] board, int position) throws Exception {
+        return switch (position) {
+            case 1 -> (board[0][0] == ' ');
+            case 2 -> (board[0][2] == ' ');
+            case 3 -> (board[0][4] == ' ');
+            case 4 -> (board[2][0] == ' ');
+            case 5 -> (board[2][2] == ' ');
+            case 6 -> (board[2][4] == ' ');
+            case 7 -> (board[4][0] == ' ');
+            case 8 -> (board[4][2] == ' ');
+            case 9 -> (board[4][4] == ' ');
+            default -> false;
+        };
     }
 
 }
