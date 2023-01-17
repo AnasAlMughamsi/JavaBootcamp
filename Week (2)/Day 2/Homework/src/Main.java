@@ -22,14 +22,15 @@ public class Main {
         Account account1 = new Account();
         account1.setName("Khaled");
         account1.setId("6124");
-        account1.setBalance(7000);
-        double credit =  account1.credit(100);
-        double deposit = account1.debit(450);
+        account1.setBalance(10000);
         System.out.println("Account name: " + account1.getName());
         System.out.println("Account ID: " + account1.getId());
         System.out.println("Account balance: " + account1.getBalance());
+        double credit =  account1.credit(2000);
+        double debit = account1.debit(1000);
         System.out.println("Account credit: " + credit);
-        System.out.println("Account deposit: " + deposit);
+        System.out.println("Account debit: " + debit);
+        System.out.println("New account balance: " + account1.getBalance());
 
         System.out.println("======================== Account 2 ========================");
         Account account2 = new Account();

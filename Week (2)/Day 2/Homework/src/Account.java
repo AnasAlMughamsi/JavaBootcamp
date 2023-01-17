@@ -22,27 +22,23 @@ public class Account {
         if(balance == 0) {
             System.out.println("Account has no balance");
         }
-        return balance + amount;
+        return balance += amount;
     }
     // withdraw
     public double debit(double amount) {
         if(balance == 0) {
             System.out.println("Account has no balance");
         }
-        return balance - amount;
+        return balance -= amount;
     }
 
-    public void transferTo(Account account, double amount) {
+    public double transferTo(Account account, double amount) {
         if(this.balance == 0) {
             System.out.println("Account has no balance!");
         }
-//        credit(amount);
-//        account.debit(amount);
-        this.balance -= amount;
         account.balance += amount;
-//        newBalance = account.getBalance() + amount;
         System.out.println("transfer amount: " + amount + " to " + account.getName());
-//        System.out.println("New balance inside Account class: " + newBalance);
+        return this.balance -= amount;
     }
 
     public String getId() {
