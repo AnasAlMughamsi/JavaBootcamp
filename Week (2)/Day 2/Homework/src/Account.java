@@ -24,6 +24,7 @@ public class Account {
         }
         return balance + amount;
     }
+    // withdraw
     public double debit(double amount) {
         if(balance == 0) {
             System.out.println("Account has no balance");
@@ -31,15 +32,16 @@ public class Account {
         return balance - amount;
     }
 
-    public double transferTo(Account account, double amount) {
+    public void transferTo(Account account, double amount) {
         if(balance == 0) {
             System.out.println("Account has no balance!");
         }
-        double newBalance = 0;
-        newBalance = account.getBalance() - amount;
+        credit(amount);
+        account.debit(amount);
+//        double newBalance = 0;
+//        newBalance = account.getBalance() + amount;
         System.out.println("transfer amount: " + amount + " to " + account.getName());
-        System.out.println("New balance inside Account class: " + newBalance);
-        return newBalance; // return the new balance after transfer
+//        System.out.println("New balance inside Account class: " + newBalance);
     }
 
     public String getId() {

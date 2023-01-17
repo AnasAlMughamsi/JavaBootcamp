@@ -45,10 +45,10 @@ public class Main {
         System.out.println("Account 2 credit: " + credit2);
         System.out.println("Account 2 deposit: " + deposit2);
 
-        double account2NewBalance = account2.transferTo(account1, 300);
-        account1.setBalance(account2NewBalance);
-        System.out.println("Account 2 new balance after transfer " + account2.getBalance());
-        System.out.println("Account 1 after transfer : " + account1.getBalance());
+        double amount = 200;
+        account2.transferTo(account1, amount);
+        System.out.println("Remaining balance of account 2:  " + account2.getBalance());
+        System.out.println("Remaining balance of account 1: " + account1.getBalance());
         System.out.println("============================================================");
 
 
