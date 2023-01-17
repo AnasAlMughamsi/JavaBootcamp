@@ -33,12 +33,13 @@ public class Account {
     }
 
     public void transferTo(Account account, double amount) {
-        if(balance == 0) {
+        if(this.balance == 0) {
             System.out.println("Account has no balance!");
         }
-        credit(amount);
-        account.debit(amount);
-//        double newBalance = 0;
+//        credit(amount);
+//        account.debit(amount);
+        this.balance -= amount;
+        account.balance += amount;
 //        newBalance = account.getBalance() + amount;
         System.out.println("transfer amount: " + amount + " to " + account.getName());
 //        System.out.println("New balance inside Account class: " + newBalance);
