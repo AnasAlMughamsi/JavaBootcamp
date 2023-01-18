@@ -1,21 +1,30 @@
 public class TeacherFullTime extends Teacher {
 
     private double yearly = 12;
-    private double bonus = 0.2;
 
-    public TeacherFullTime(String firstName, String lastName, String email, String phoneNumber, double salary, double yearly, double bonus) {
+
+    public TeacherFullTime(String firstName, String lastName, String email,
+                           String phoneNumber, double salary, double yearly) {
         super(firstName, lastName, email, phoneNumber, salary);
         this.yearly = yearly;
-        this.bonus = bonus;
     }
 
-    public void setSalary(double salary, double bonus, double yearly) {
-        yearly = salary * 12;
-        bonus = salary *  0.2; // 20%
-        double totalSalary = 0;
-        totalSalary += bonus + yearly;
-        super.setSalary(totalSalary);
+//    @Override
+//    public void setSalary(double salary) {
+//        double totalSalary = 0;
+//        totalSalary += yearly * salary;
+//        setSalary(salary);
 //        System.out.println(totalSalary);
+//    }
+
+
+    @Override
+    public double setSalary(double salary) {
+        return salary * yearly;
     }
 
+    @Override
+    public double getSalary() {
+        return super.getSalary();
+    }
 }

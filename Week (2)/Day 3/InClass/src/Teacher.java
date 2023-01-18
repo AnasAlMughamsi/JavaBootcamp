@@ -1,5 +1,6 @@
-public class Teacher extends Person {
+public abstract class Teacher extends Person {
     private double salary;
+
 
     public Teacher(String firstName, String lastName, String email, String phoneNumber, double salary) {
         super(firstName, lastName, email, phoneNumber);
@@ -11,7 +12,6 @@ public class Teacher extends Person {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
+    public abstract double setSalary(double salary);
+
 }
