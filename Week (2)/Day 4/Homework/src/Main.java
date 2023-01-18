@@ -23,9 +23,13 @@ public class Main {
         System.out.println("========================== Interface ==========================");
 
         MovablePoint movablePoint = new MovablePoint(3,15, 7,21);
+        System.out.print("Move right: ");
         movablePoint.moveRight();
+        System.out.print("Move left: ");
         movablePoint.moveLeft();
+        System.out.print("Move up: ");
         movablePoint.moveUp();
+        System.out.print("Move down: ");
         movablePoint.moveDown();
 
 
