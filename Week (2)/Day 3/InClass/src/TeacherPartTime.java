@@ -3,30 +3,40 @@ import java.util.Scanner;
 public class TeacherPartTime extends Teacher {
 
     private double paidByHour;
+
+    public TeacherPartTime() {
+
+    }
+
     public TeacherPartTime(String firstName, String lastName, String email, String phoneNumber, double salary, double paidByHour) {
         super(firstName, lastName, email, phoneNumber, salary);
         this.paidByHour = paidByHour;
     }
 
-
-    @Override
     public double setSalary(double salary) {
-//        Scanner input = new Scanner(System.in);
         int hours = 151;
-        paidByHour = salary;
         if(hours >= 150) {
-         paidByHour = 50;
+            salary = 50;
         } else {
-            paidByHour = 30;
+            salary = 30;
         }
-        double totalSalary = hours * paidByHour;
-        System.out.println("Part time salary: " + totalSalary);
-        setSalary(totalSalary);
-        return totalSalary;
+        salary += hours * salary;
+//        setSalary(salary);
+        System.out.println("Part time salary: " + salary);
+        return salary;
     }
+//    @Override
+//    public double setSalary(double salary) {
+//        int hours = 151;
+//        if(hours >= 150) {
+//            salary = 50;
+//        } else {
+//            salary = 30;
+//        }
+//        salary += hours * salary;
+//        System.out.println("Part time salary: " + salary);
+//        return salary;
+//    }
 
-    @Override
-    public double getSalary() {
-        return super.getSalary();
-    }
+
 }

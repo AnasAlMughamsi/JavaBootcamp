@@ -3,6 +3,10 @@ public class TeacherFullTime extends Teacher {
     private double yearly = 12;
 
 
+    public TeacherFullTime() {
+
+    }
+
     public TeacherFullTime(String firstName, String lastName, String email,
                            String phoneNumber, double salary, double yearly) {
         super(firstName, lastName, email, phoneNumber, salary);
@@ -18,13 +22,15 @@ public class TeacherFullTime extends Teacher {
 //    }
 
 
-    @Override
     public double setSalary(double salary) {
-        return salary * yearly;
+        double newSalary = salary * 12;
+//        setSalary(newSalary);
+        return newSalary;
     }
 
     @Override
     public double getSalary() {
         return super.getSalary();
     }
+
 }

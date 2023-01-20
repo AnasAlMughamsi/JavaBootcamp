@@ -32,7 +32,5 @@ public class Main {
         System.out.print("Move down: ");
         movablePoint.moveDown();
 
-
-
     }
 }

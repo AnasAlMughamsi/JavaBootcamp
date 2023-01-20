@@ -4,11 +4,11 @@ public class Main {
                 "Anas@gmail.com", "054334025",4,"4.6");
 
 
-        TeacherFullTime teacherFullTime = new TeacherFullTime("asdf", "asdf",
-                "asdfasf","342341234",4133,12);
+        TeacherFullTime teacherFullTime = new TeacherFullTime();
+        TeacherPartTime teacherPartTime = new TeacherPartTime();
 
-
-        System.out.println(teacherFullTime.setSalary(8000));
+//        System.out.println(teacherFullTime.setSalary(8000));
+        System.out.println(teacherPartTime.setSalary(3500));
         System.out.println(teacherFullTime.getSalary());
     }
 }
