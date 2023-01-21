@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cf08883-cfa8-467f-b139-645b8aa5eb0a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/class.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/class/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/Homework.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/src/Question1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week (2)/homework/src/Question2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +31,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java Bootcamp/Java/Week (1)/Project",
+    "full.screen.before.presentation.mode": "false",
+    "last_opened_file_path": "F:/MyWork/Java Bootcamp/JavaBootcamp/Week (2)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +57,7 @@
       <workItem from="1673542552959" duration="52000" />
       <workItem from="1673542624244" duration="4272000" />
       <workItem from="1673765844678" duration="16934000" />
+      <workItem from="1674154125449" duration="793000" />
     </task>
     <servers />
   </component>
@@ -87,5 +74,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -14,7 +14,6 @@ public abstract class Product {
 
 
     public abstract double getDiscount();
-
     public String getName() {
         return name;
     }

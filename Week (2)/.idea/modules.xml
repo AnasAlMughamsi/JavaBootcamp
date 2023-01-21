@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Day 1/Homework/Homework.iml" filepath="$PROJECT_DIR$/Day 1/Homework/Homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 3/Homework/Homework1.iml" filepath="$PROJECT_DIR$/Day 3/Homework/Homework1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 4/Homework/Homework2.iml" filepath="$PROJECT_DIR$/Day 4/Homework/Homework2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 2/Homework/Homework3.iml" filepath="$PROJECT_DIR$/Day 2/Homework/Homework3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 2/InClass/InClass.iml" filepath="$PROJECT_DIR$/Day 2/InClass/InClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 3/InClass/InClass1.iml" filepath="$PROJECT_DIR$/Day 3/InClass/InClass1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 4/InClass/InClass2.iml" filepath="$PROJECT_DIR$/Day 4/InClass/InClass2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day 1/Lecture/Lecture.iml" filepath="$PROJECT_DIR$/Day 1/Lecture/Lecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Week (2).iml" filepath="$PROJECT_DIR$/.idea/Week (2).iml" />
+    </modules>
+  </component>
+</project>
