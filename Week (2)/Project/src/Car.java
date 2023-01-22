@@ -7,9 +7,6 @@ public class Car extends Trip {
     @Override
     public double calculateDuration() {
         double arrivalTime = (getDistance() / getSpeed());
-        double newTime = arrivalTime * 60;
-        int h = (int) newTime / 60;
-        int m = (int) newTime % 60;
-        return newTime;
+        return arrivalTime * 60;
     }
 }
