@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+
 public abstract class Trip {
     private String tripNumber;
     private double distance;
@@ -11,11 +13,11 @@ public abstract class Trip {
         this.startTime = startTime;
     }
 
-    public abstract int calculateDuration();
+    public abstract double calculateDuration();
     public double convertMinToHour(double min) {
-
         return min/60;
     }
+
     public String calculateArrivalTime() {
 
         /*
@@ -28,28 +30,26 @@ public abstract class Trip {
 
         // you only need here is the distance and the speed
 //        ==============================================================================
-//        String arriveTime;
-//        startTime = "12:15";
-//        double hour = Integer.parseInt((startTime.substring(0,2)));
-//        double minute = Integer.parseInt((startTime.substring(3,5)));
-//        // after converting to double for calculation.
-//        double hourToMinutes = hour * 60;
-//        double totalTime = minute + hourToMinutes;
+        double hour = Integer.parseInt((startTime.substring(0,2)));
+        double minute = Integer.parseInt((startTime.substring(3,5)));
+        // after converting to double for calculation.
+        double hourToMinutes = hour * 60;
+        double startTimeMinutes = minute + hourToMinutes;
 //        ==============================================================================
-
         // convert hour to minutes and add it to double minutes.
         // convert it back to String to display as normal hour;
-
         double arrivalTime = (distance / speed);
-        String arrive = String.valueOf(arrivalTime);
-        String timeInString = String.valueOf(arrive);
-        String hours = timeInString.substring(0,1);
-        String minutes = timeInString.substring(3,5);
-//        return String.valueOf(arrivalTime);
-        int mintToDouble = Integer.parseInt(minutes);
-        mintToDouble%=60;
-        String newMins = String.valueOf(mintToDouble);
-        return hours + ":" + newMins;
+        double timeDifferance = startTimeMinutes + calculateDuration();
+
+//        double newTine = arrivalTime * 60;
+        int h = (int) timeDifferance / 60;
+        int m = (int) timeDifferance % 60;
+//      arrive time = startTime - arrivalTime
+//        double
+//        take double of startTime and double of arrivalTime
+//        then take the differance.
+
+        return h + ":" + m;
     }
 
     public String getTripNumber() {

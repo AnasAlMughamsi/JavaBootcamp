@@ -4,7 +4,8 @@ public class Airplane extends Trip {
     }
 
     @Override
-    public int calculateDuration() {
-        return 0;
+    public double calculateDuration() {
+        double arrivalTime = (getDistance() / getSpeed());
+        return arrivalTime * 60;
     }
 }

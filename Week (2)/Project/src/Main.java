@@ -1,20 +1,21 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        Car car = new Car("B39", 620,120, "14:00");
+        Car car = new Car("road", 620,120, "14:00");
 //        car.calculateDuration();
 //        car.convertMinToHour();
 //        car.calculateArrivalTime(); // here should return hour with string "03:15"
-        System.out.println(car.calculateArrivalTime());
         System.out.println("=================== Car ===================");
-        String arrive = car.calculateArrivalTime();
-        System.out.println(arrive);
-        System.out.println(car.convertMinToHour(120));
         // show start time
+        double duration = car.calculateDuration();
         System.out.println("Start time: " + car.getStartTime());
-        System.out.println("Arrive time: " + arrive);
+        System.out.println("Arrive time: " + car.calculateDuration());
+        System.out.println("Duration: " + car.convertMinToHour(duration));
+        System.out.println("Arrive time: " + car.calculateArrivalTime());
         // show arrive time
         System.out.println("=================== End ===================");
 
@@ -33,10 +34,11 @@ public class Main {
         String hours = timeInString.substring(0,2);
         String minutes = timeInString.substring(3,5);
         double mintToDouble = Double.parseDouble(minutes);
-        System.out.println(mintToDouble);
-        System.out.println("Hour > " + hours);
-        System.out.println("Minutes > " + minutes);
 
+        double newTine = time * 60;
+        int h = (int) newTine / 60;
+        int m = (int) newTine % 60;
+        System.out.println("time :: >> " + h + ":" + m);
         System.out.println(hours + ":" + minutes);
 
     }
