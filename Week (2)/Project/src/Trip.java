@@ -38,12 +38,12 @@ public abstract class Trip {
 //        ==============================================================================
         // convert hour to minutes and add it to double minutes.
         // convert it back to String to display as normal hour;
-        double arrivalTime = (distance / speed);
-        double timeDifferance = startTimeMinutes + calculateDuration();
 
-//        double newTine = arrivalTime * 60;
-        int h = (int) timeDifferance / 60;
-        int m = (int) timeDifferance % 60;
+//        double arrivalTime = (distance / speed);
+        double totalTimes = startTimeMinutes + calculateDuration(); // in double
+
+        int h = (int) totalTimes / 60;
+        int m = (int) totalTimes % 60;
 //      arrive time = startTime - arrivalTime
 //        double
 //        take double of startTime and double of arrivalTime

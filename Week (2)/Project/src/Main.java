@@ -11,6 +11,8 @@ public class Main {
 
         System.out.println("=================== Car ===================");
         System.out.println("Start time: " + car.getStartTime());
+        System.out.println("Speed : " + car.getSpeed());
+        System.out.println("duration in minutes: " + car.calculateDuration());
         System.out.print("Duration time: ");
         System.out.printf("%.2f",  airPlane.convertMinToHour(car.calculateDuration()));
         System.out.println(" hour");
@@ -18,6 +20,8 @@ public class Main {
 
         System.out.println("=================== Train ===================");
         System.out.println("Start time: " + train.getStartTime());
+        System.out.println("Speed : " + train.getSpeed());
+        System.out.println("duration in minutes: " + train.calculateDuration());
         System.out.print("Duration time: ");
         System.out.printf("%.2f",  airPlane.convertMinToHour(train.calculateDuration()));
         System.out.println(" hour");
@@ -25,8 +29,10 @@ public class Main {
 
         System.out.println("=================== Airplane ===================");
         System.out.println("Start time: " + airPlane.getStartTime());
+        System.out.println("Speed : " + airPlane.getSpeed());
+        System.out.println("duration in minutes: " + airPlane.calculateDuration());
         System.out.print("Duration time: ");
-        System.out.printf("%.2f",  airPlane.convertMinToHour(train.calculateDuration()));
+        System.out.printf("%.2f",  airPlane.convertMinToHour(airPlane.calculateDuration()));
         System.out.println(" hour");
         System.out.println("Arrive time: " + airPlane.calculateArrivalTime());
 
