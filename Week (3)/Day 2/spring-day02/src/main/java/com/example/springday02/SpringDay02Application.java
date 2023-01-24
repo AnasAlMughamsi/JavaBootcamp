@@ -23,6 +23,7 @@ public class SpringDay02Application {
     @Qualifier("2")
     public String getMessage2(@Qualifier("3") String data) {
         System.out.println("hey from message2 ");
+//        System.out.println(data);
         return data;
     }
 
@@ -30,7 +31,7 @@ public class SpringDay02Application {
     @Qualifier("3")
     public String getMessage3() {
         System.out.println("hey from message3 ");
-        return "3";
+        return "Anas 3";
     }
 
 }
