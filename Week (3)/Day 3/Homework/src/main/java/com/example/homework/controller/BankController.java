@@ -35,21 +35,48 @@ public class BankController {
         return "Customer deleted!";
     }
 
-    @PutMapping("/balance-deposit/{index}")
-    public String deposit(@PathVariable int index, @RequestBody Bank customer) {
-        double amount = 1000;
-        double newBalance = customer.getBalance() + amount;
-        customer.setBalance(newBalance);
+    @PutMapping("/balance-deposit/{id}")
+    public String deposit(@PathVariable int id) {
+        if(customers.isEmpty()) {
+            return "no customer found!";
+        }
+        double depositAmount = 1000;
+
+        for (Bank customer : customers) {
+
+            if(customer.getId() == id) {
+                if(customer.getBalance() == 0) {
+                    return "Customer has no balance";
+                }
+                double newBalance = customer.getBalance() + depositAmount;
+                customer.setBalance(newBalance);
+            } else {
+                return "no customer has this id, try again";
+            }
+        }
+
         return "deposit amount of ";
     }
-    @PutMapping("/balance-withdraw/{index}")
-    public String withdraw(@PathVariable int index, @RequestBody Bank customer) {
-        if(customer.getBalance() == 0) {
-            return "Customer has no balance";
+    @PutMapping("/balance-withdraw/{id}")
+    public String withdraw(@PathVariable int id) {
+        if(customers.isEmpty()) {
+            return "no customer found!";
         }
         double withdrawAmount = 100;
-        double newBalance = customer.getBalance() - withdrawAmount;
-        customer.setBalance(newBalance);
+
+        for (Bank customer : customers) {
+
+            if(customer.getId() == id) {
+                if(customer.getBalance() == 0) {
+                    return "Customer has no balance";
+                }
+                double newBalance = customer.getBalance() - withdrawAmount;
+                customer.setBalance(newBalance);
+            } else {
+                return "no customer has this id, try again";
+            }
+        }
+
         return "withdraw amount of ";
     }
 

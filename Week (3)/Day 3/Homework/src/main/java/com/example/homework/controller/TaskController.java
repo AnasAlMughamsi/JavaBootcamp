@@ -47,12 +47,10 @@ public class TaskController {
         ArrayList<Task> matchByTitle = new ArrayList<>();
 
         for (Task task: tasks) {
-
             if(task.getTitle().equals(title)) {
                 matchByTitle.add(task);
             }
         }
-
         return matchByTitle;
     }
 
