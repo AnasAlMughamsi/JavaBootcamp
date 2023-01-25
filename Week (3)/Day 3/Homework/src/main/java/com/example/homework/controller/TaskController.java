@@ -41,7 +41,6 @@ public class TaskController {
     }
 
 
-    // method to search by title
     @GetMapping("/get-title/{title}")
     public ArrayList<Task> searchByTitle(@PathVariable String title) {
         ArrayList<Task> matchByTitle = new ArrayList<>();
@@ -51,10 +50,10 @@ public class TaskController {
                 matchByTitle.add(task);
             }
         }
+        // return all the tasks have the same title.
         return matchByTitle;
     }
 
-    // method to change the status
     @PutMapping("/update-status/{index}")
     public String changeStatus(@PathVariable int index) {
 

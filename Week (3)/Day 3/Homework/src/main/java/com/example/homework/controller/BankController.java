@@ -45,39 +45,30 @@ public class BankController {
         for (Bank customer : customers) {
 
             if(customer.getId() == id) {
-                if(customer.getBalance() == 0) {
-                    return "Customer has no balance";
-                }
+                System.out.println("customer id: " + customer.getId() + " id from postman: " + id);
                 double newBalance = customer.getBalance() + depositAmount;
                 customer.setBalance(newBalance);
-            } else {
-                return "no customer has this id, try again";
             }
         }
 
-        return "deposit amount of ";
+        return "deposit done";
     }
     @PutMapping("/balance-withdraw/{id}")
     public String withdraw(@PathVariable int id) {
+
         if(customers.isEmpty()) {
             return "no customer found!";
         }
+
         double withdrawAmount = 100;
-
         for (Bank customer : customers) {
-
             if(customer.getId() == id) {
-                if(customer.getBalance() == 0) {
-                    return "Customer has no balance";
-                }
                 double newBalance = customer.getBalance() - withdrawAmount;
                 customer.setBalance(newBalance);
-            } else {
-                return "no customer has this id, try again";
             }
         }
 
-        return "withdraw amount of ";
+        return "withdraw done";
     }
 
 }
