@@ -43,8 +43,9 @@ public class EmployeeController {
     @DeleteMapping("/delete/{index}")
     public ApiResponse deleteEmployee(@PathVariable int index) {
         employees.remove(index);
-        return new ApiResponse("User deleted!");
+        return new ApiResponse("Employee deleted!");
     }
+
 
     // new endpoint to check annual leave!
     @PutMapping("/annual-leave/{id}")
@@ -53,18 +54,17 @@ public class EmployeeController {
         for (Employee employee : employees) {
             if(employee.getId() == id) {
                 if(employee.getAnnualLeave() == 0) {
-                    return ResponseEntity.status(400).body(new ApiResponse("Employee has no annual leave!"));
+                    return ResponseEntity.status(400).body(new ApiResponse("Employee already take annual leave!"));
 
                 } else if(employee.isOnLeave()) {
                     return ResponseEntity.status(400).body(new ApiResponse("تراك في اجازة!"));
                 }
                 employee.setOnLeave(true);
                 employee.setAnnualLeave(employee.getAnnualLeave() - 1); // make it 0
-                return ResponseEntity.status(200).body(new ApiResponse("Done"));
+                return ResponseEntity.status(200).body(new ApiResponse("Go. you are free!... but come back later"));
             }
         }
         return ResponseEntity.status(400).body(new ApiResponse("id not found"));
-//        return "HI";
     }
 
 

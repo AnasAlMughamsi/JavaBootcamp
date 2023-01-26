@@ -20,14 +20,13 @@ public class Employee {
 
     @NotNull(message = "age cannot be null")
     @Min(value = 25, message = "age should be more then 24")
-    @Digits(integer = 2, fraction = 0)
+    @Digits(integer = 2, fraction = 0, message = "age should be only two digit.")
     private int age;
 
     @NotEmpty(message = "role cannot be empty")
-    @Pattern(regexp = "supervisor|coordinator|Supervisor|Coordinator")
+    @Pattern(regexp = "supervisor|Supervisor|coordinator|Coordinator")
     private String role;
 
-//    @AssertFalse
     private boolean onLeave = false;
 
     @NotNull(message = "employment year cannot be null")
@@ -36,8 +35,7 @@ public class Employee {
     private int employmentYear;
 
     @NotNull(message = "annual leave cannot be null")
-//    @Digits(integer = 1, fraction = 0)
-    @Range(min = 0, max = 1, message = "range of annual leave should be between 1 to 21")
+    @Range(min = 0, max = 1, message = "value of annual leave should be  1 or 0")
     @Positive
     private int annualLeave;
 
