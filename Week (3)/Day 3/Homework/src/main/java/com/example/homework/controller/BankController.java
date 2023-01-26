@@ -40,22 +40,20 @@ public class BankController {
         if(customers.isEmpty()) {
             return "no customer found!";
         }
+
         double depositAmount = 1000;
-
         for (Bank customer : customers) {
-
             if(customer.getId() == id) {
                 System.out.println("customer id: " + customer.getId() + " id from postman: " + id);
                 double newBalance = customer.getBalance() + depositAmount;
                 customer.setBalance(newBalance);
             }
         }
-
         return "deposit done";
     }
+
     @PutMapping("/balance-withdraw/{id}")
     public String withdraw(@PathVariable int id) {
-
         if(customers.isEmpty()) {
             return "no customer found!";
         }
