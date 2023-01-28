@@ -62,19 +62,26 @@ public class UserController {
 
     // Endpoint: make the user add product into merchant stock!
     @PostMapping("/add-product/{productID}/{merchantID}")
-    public ResponseEntity userAddProduct(@PathVariable int productID, @PathVariable int merchantID, Errors errors) {
-        if(errors.hasErrors()) {
-            String message = errors.getFieldError().getDefaultMessage();
-            return ResponseEntity.status(400).body(message);
-        }
+    public ResponseEntity userAddProduct(@PathVariable int productID, @PathVariable int merchantID) {
+//        if(errors.hasErrors()) {
+//            String message = errors.getFieldError().getDefaultMessage();
+//            return ResponseEntity.status(400).body(message);
+//        }
 
-//        merchantStock.setStock(newProduct.getId());
-//        merchantStockService.addMerchantStock();
-        userService.userAddProduct(productID, merchantID);
+        // user take the product id and insert into merchantStock
+
+        MerchantStock newStock = new MerchantStock();
+        userService.userAddProduct(productID, merchantID, newStock);
         return ResponseEntity.status(200).body("Product add into the stock!");
 
     }
 
 
     // Endpoint: where user can buy a product.
+
+    @PostMapping("/buy-product")
+    public ResponseEntity buyProduct() {
+
+        return ResponseEntity.status(200).body("User bought a product!");
+    }
 }

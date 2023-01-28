@@ -1,6 +1,7 @@
 package com.example.ecommercewebsite.service;
 
 
+import com.example.ecommercewebsite.pojo.Merchant;
 import com.example.ecommercewebsite.pojo.MerchantStock;
 import com.example.ecommercewebsite.pojo.Product;
 import com.example.ecommercewebsite.pojo.User;
@@ -14,6 +15,7 @@ public class UserService {
     ArrayList<User> users = new ArrayList<>();
     ArrayList<MerchantStock> merchantStocks = new ArrayList<>();
     ArrayList<Product> products = new ArrayList<>();
+    ArrayList<Merchant> merchants = new ArrayList<>();
 
     public ArrayList<User> getUsers() {
         return users;
@@ -44,16 +46,18 @@ public class UserService {
     }
 
     // method to accept user to add product into merchantStock
-    public void userAddProduct(int productId, int merchantId) {
-        // need stock object, merchantStock object and merchant object
-        // I need productID, merchantID.
-//        int addToStock = merchantStocks.get(1).setStock();
-        // So, I need to take productId into setStock ?
-//        product.getId();
+    public void userAddProduct(int productId, int merchantId, MerchantStock merchantStock) {
 
-        if(products.get(1).getId() == productId && merchantStocks.get(1).getMerchantID() == merchantId) {
-            merchantStocks.get(1).setStock(productId);
+        Product newProduct = new Product();
+        Merchant newMerchant = new Merchant();
+        if(newProduct.getId() == productId && newMerchant.getId() == merchantId) {
+            merchantStock.setStock(productId);
         }
+
+    }
+
+
+    public void buyProduct(int userId, int productId, int merchantId) {
 
     }
 
