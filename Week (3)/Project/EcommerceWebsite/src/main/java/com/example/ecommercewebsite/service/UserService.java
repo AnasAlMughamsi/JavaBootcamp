@@ -5,17 +5,21 @@ import com.example.ecommercewebsite.pojo.Merchant;
 import com.example.ecommercewebsite.pojo.MerchantStock;
 import com.example.ecommercewebsite.pojo.Product;
 import com.example.ecommercewebsite.pojo.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     ArrayList<User> users = new ArrayList<>();
     ArrayList<MerchantStock> merchantStocks = new ArrayList<>();
     ArrayList<Product> products = new ArrayList<>();
     ArrayList<Merchant> merchants = new ArrayList<>();
+    private final ProductService productService;
+    private final MerchantStockService merchantStockService;
 
     public ArrayList<User> getUsers() {
         return users;
@@ -48,11 +52,8 @@ public class UserService {
     // method to accept user to add product into merchantStock
     public void userAddProduct(int productId, int merchantId, MerchantStock merchantStock) {
 
-        Product newProduct = new Product();
-        Merchant newMerchant = new Merchant();
-        if(newProduct.getId() == productId && newMerchant.getId() == merchantId) {
-            merchantStock.setStock(productId);
-        }
+        if(products.get())
+        merchantStockService.addMerchantStock(merchantStock);
 
     }
 
