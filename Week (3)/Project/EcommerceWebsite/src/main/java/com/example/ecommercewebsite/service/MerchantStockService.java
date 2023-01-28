@@ -29,7 +29,6 @@ public class MerchantStockService {
         return false;
     }
 
-
     public boolean deleteMerchantStock(int id) {
         for (int i = 0; i < merchantStocks.size(); i++) {
             if(merchantStocks.get(i).getMerchantID() == id) {
@@ -39,4 +38,6 @@ public class MerchantStockService {
         }
         return false;
     }
+
+
 }
