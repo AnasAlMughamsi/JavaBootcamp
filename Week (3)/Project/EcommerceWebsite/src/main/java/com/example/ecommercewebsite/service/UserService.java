@@ -52,7 +52,7 @@ public class UserService {
     // method to accept user to add product into merchantStock
     public void userAddProduct(int productId, int merchantId, MerchantStock merchantStock) {
 
-        if(products.get())
+//        if(products.get())
         merchantStockService.addMerchantStock(merchantStock);
 
     }
