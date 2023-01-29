@@ -1,12 +1,11 @@
-create database store;
 
+create database store;
 
 create table countries(
     code int primary key ,
     name varchar(20) unique ,
     continent_name varchar(20) not null
 );
-# insert into customer values ('2', 'user1', 'user1@gmail.com','user');
 
 create table users(
     id int primary key ,
@@ -24,6 +23,7 @@ create table orders(
     status varchar(20),
     create_at datetime,
     user_id int ,
+
     foreign key (user_id) references users(id)
 
 );
@@ -44,8 +44,13 @@ create table order_product(
     foreign key (product_id) references products(id)
 );
 
+
+
 insert into countries values (00966, 'Saudi Arabia', 'Asia');
 insert into users values (211, 'Anas', 'Anas@gmail.com', 'm', '30/04/1995', '2010-11-12', 00966);
+insert into users values (215, 'test', 'test@gmail.com', 'm', '30/04/1999', '2010-11-12', 00966);
 insert into orders values (342, 'available', '2022-12-22', 211);
 insert into products values (555, 'book', 15, 'available', '2019-01-01');
 insert into order_product values (342,555,10);
+update products set name = 'video game' where id = 555;
+delete from users where id = 215;
