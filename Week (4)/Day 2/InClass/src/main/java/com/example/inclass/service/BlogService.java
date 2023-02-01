@@ -1,6 +1,7 @@
 package com.example.inclass.service;
 
 
+import com.example.inclass.exception.ApiException;
 import com.example.inclass.model.Blog;
 import com.example.inclass.repository.BlogRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,33 +18,45 @@ public class BlogService {
     public List<Blog> getBlog() {
         return blogRepository.findAll();
     }
+    public Blog findByTitle(String title) {
+        Blog blog = blogRepository.findBlogByTitle(title);
+        if(blog == null) {
+            throw new ApiException("Title not found!");
+        }
+        return blog;
+    }
+
+    public Blog searchByTitle(String title) {
+        Blog blog = blogRepository.searchByTitle(title);
+        if(blog == null) {
+            throw new ApiException("Title not found!");
+        }
+        return blog;
+    }
 
     public void addBlog(Blog newBlog) {
         blogRepository.save(newBlog);
     }
 
-    public void addAllBlogs(List<Blog> newBlogs) {
-        blogRepository.saveAll(newBlogs);
-    }
-    public boolean updateBlog(Integer id, Blog updateBlog) {
-        Blog oldBlog = blogRepository.getById(id);
+    public void updateBlog(Integer id, Blog updateBlog) {
+        Blog oldBlog = blogRepository.findBlogById(id);
         if(oldBlog == null) {
-            return false;
+            throw new ApiException("wrong id from service class");
+//            return false;
         }
 //        updateBlog.getId();
         oldBlog.setTitle(updateBlog.getTitle());
         oldBlog.setBody(updateBlog.getBody());
         blogRepository.save(oldBlog);
-        return true;
+//        return true;
     }
 
-    public boolean deleteBlog(Integer id) {
-        Blog blogId = blogRepository.getById(id);
+    public void deleteBlog(Integer id) {
+        Blog blogId = blogRepository.findBlogById(id);
         if(blogId == null) {
-            return false;
+            throw new ApiException("Can't delete blog, wrong id from service class");
         }
         blogRepository.delete(blogId);
-        return true;
     }
 
 

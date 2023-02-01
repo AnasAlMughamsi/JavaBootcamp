@@ -25,46 +25,43 @@ public class BlogController {
         return ResponseEntity.status(200).body(blogs);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity addBlog(@Valid @RequestBody Blog blog, Errors errors) {
-        if(errors.hasErrors()) {
-            String message = errors.getFieldError().getDefaultMessage();
-            return ResponseEntity.status(400).body("Can't add blog");
-        }
-        blogService.addBlog(blog);
-        return ResponseEntity.status(200).body("Blog add!");
+    @GetMapping("/find-by-title/{title}")
+    public ResponseEntity getBlogByTitle(@PathVariable String title) {
+        Blog blog = blogService.findByTitle(title);
+        return ResponseEntity.status(200).body(blog);
     }
 
-//    @PostMapping("/add-all")
-//    public ResponseEntity addAllBlogs(@Valid @RequestBody Blog[] blogs, Errors errors) {
+    @GetMapping("/search-title/{title}")
+    public ResponseEntity searchWithTitle(@PathVariable String title) {
+        Blog blog = blogService.searchByTitle(title);
+        return ResponseEntity.status(200).body(blog);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity addBlog(@Valid @RequestBody Blog blog) {
 //        if(errors.hasErrors()) {
 //            String message = errors.getFieldError().getDefaultMessage();
 //            return ResponseEntity.status(400).body("Can't add blog");
 //        }
-//        blogService.addAllBlogs(blogs);
-//        return ResponseEntity.status(200).body("All blogs add!");
-//    }
+        blogService.addBlog(blog);
+        return ResponseEntity.status(200).body("Blog add!");
+    }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateBlog(@PathVariable Integer id,@Valid @RequestBody Blog updateBlog, Errors errors) {
-        if(errors.hasErrors()) {
-            String message = errors.getFieldError().getDefaultMessage();
-            return ResponseEntity.status(400).body("Can't add blog");
-        }
-        boolean isBlogUpdated = blogService.updateBlog(id,updateBlog);
-        if(isBlogUpdated) {
-            return ResponseEntity.status(200).body("Blog updated!");
-        }
-        return ResponseEntity.status(400).body("Can't update the blog, wrong id!");
+    public ResponseEntity updateBlog(@PathVariable Integer id,@Valid @RequestBody Blog updateBlog) {
+
+        blogService.updateBlog(id,updateBlog);
+        return ResponseEntity.status(200).body("Blog updated!");
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteBlog(@PathVariable Integer id) {
-        boolean isBlogDeleted = blogService.deleteBlog(id);
-        if (isBlogDeleted) {
+//        boolean isBlogDeleted =
+        blogService.deleteBlog(id);
+//        if (isBlogDeleted) {
             return ResponseEntity.status(200).body("Blog deleted!!");
-        }
-        return ResponseEntity.status(400).body("Can't delete the blog, Wrong Id!");
+//        }
+//        return ResponseEntity.status(400).body("Can't delete the blog, Wrong Id!");
     }
 
 }

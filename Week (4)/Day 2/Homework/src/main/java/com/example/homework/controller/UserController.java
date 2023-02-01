@@ -18,7 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/get")
-    public ResponseEntity getUsers() {
+    public ResponseEntity getUser() {
         List<User> users = userService.getUsers();
         return ResponseEntity.status(200).body(users);
     }
@@ -56,5 +56,38 @@ public class UserController {
         } else {
             return ResponseEntity.status(400).body("Can't delete the user, Wrong Id!");
         }
+    }
+
+
+    // new method - homework18
+
+    @GetMapping("/getall")
+    public ResponseEntity getAllUsers() {
+        List<User> allUsers = userService.getAllUser();
+        return ResponseEntity.status(200).body(allUsers);
+    }
+    @GetMapping("/getbyemail/{email}")
+    public ResponseEntity getByEmail(@PathVariable String email) {
+        User userByEmail =  userService.findByEmail(email);
+        return ResponseEntity.status(200).body(userByEmail);
+    }
+
+    @GetMapping("/get-by-age/{age}")
+    public ResponseEntity getByAge(@PathVariable int age) {
+        List<User> userByAge =  userService.searchByAge(age);
+        return ResponseEntity.status(200).body(userByAge);
+    }
+
+    @GetMapping("/get-by-role/{role}")
+    public ResponseEntity getByRole(@PathVariable String role) {
+        List<User> userRole = userService.searchAllByRole(role);
+        return ResponseEntity.status(200).body(userRole);
+    }
+
+
+    @GetMapping("/check-ep")
+    public ResponseEntity checkEmailPassword(User user) {
+        userService.checkEmailPassword(user);
+        return ResponseEntity.status(200).body("userFetched");
     }
 }
