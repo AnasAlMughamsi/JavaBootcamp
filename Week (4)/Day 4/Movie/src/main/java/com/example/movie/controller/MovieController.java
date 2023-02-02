@@ -76,5 +76,5 @@ public class MovieController {
         Director director = movieService.findDirectorByMovieTitle(title);
         return ResponseEntity.status(200).body("Director name: " + director.getName());
     }
-    
+
 }

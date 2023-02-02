@@ -2,6 +2,7 @@ package com.example.movie.controller;
 
 
 import com.example.movie.model.Director;
+import com.example.movie.model.Movie;
 import com.example.movie.service.DirectorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +41,10 @@ public class DirectorController {
         return ResponseEntity.status(200).body("Director deleted!!");
     }
 
+    @GetMapping("/get-movies/{id}")
+    public ResponseEntity findMoviesByDirector(@PathVariable Integer id) {
+        List<Movie> movies = directorService.findMoviesByDirectorId(id);
+        return ResponseEntity.status(200).body(movies);
+    }
 
 }

@@ -36,5 +36,5 @@ public class Movie {
     private String duration;
 
 //    @Column(columnDefinition = "foreign key (directorID) references director(id)")
-    private int directorID;
+    private Integer directorID;
 }

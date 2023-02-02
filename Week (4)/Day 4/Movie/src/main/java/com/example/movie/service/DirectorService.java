@@ -43,12 +43,15 @@ public class DirectorService {
         directorRepository.delete(director);
     }
 
-//    public Director directorByMovieTitle(String title) {
-//        Movie movieTitle = movieRepository.findMovieByName(title);
-//        Director director = new Director();
-//        if(director.getId() == movieTitle.getDirectorID()) {
-//            return director.getName();
-//        }
-//        return "can't find the director with that name";
-//    }
+    public List<Movie> findMoviesByDirectorId(Integer id) {
+        Director directorId = directorRepository.findDirectorById(id);
+        if(directorId == null) {
+            throw new ApiException("Can't find direction with this id");
+        }
+        List<Movie> movies = movieRepository.findAll();
+        if(movies.contains(directorId)) {
+            return movies;
+        }
+        throw new ApiException("This director has no movies");
+    }
 }
