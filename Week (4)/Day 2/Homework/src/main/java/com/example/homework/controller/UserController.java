@@ -88,6 +88,6 @@ public class UserController {
     @GetMapping("/check-ep")
     public ResponseEntity checkEmailPassword(User user) {
         userService.checkEmailPassword(user);
-        return ResponseEntity.status(200).body("userFetched");
+        return ResponseEntity.status(200).body("password and email are corrects");
     }
 }
