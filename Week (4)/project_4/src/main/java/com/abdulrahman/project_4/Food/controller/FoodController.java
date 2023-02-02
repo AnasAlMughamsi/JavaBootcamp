@@ -26,7 +26,7 @@ public class FoodController {
         return ResponseEntity.status(200).body("Added");
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity updateFoods(@PathVariable Integer id, @RequestBody @Valid Food food, Errors errors){
+    public ResponseEntity updateFoods(@PathVariable Integer id, @RequestBody @Valid Food food){
 
         foodService.editFood(id,food);
         return ResponseEntity.status(200).body("Food modified!");

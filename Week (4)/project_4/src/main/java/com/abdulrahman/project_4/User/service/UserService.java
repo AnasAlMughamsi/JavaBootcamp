@@ -1,9 +1,12 @@
 package com.abdulrahman.project_4.User.service;
 
+import com.abdulrahman.project_4.Food.model.Food;
+import com.abdulrahman.project_4.Food.repository.FoodRepo;
 import com.abdulrahman.project_4.Movie.model.Movie;
 import com.abdulrahman.project_4.Movie.repository.MovieRepo;
 import com.abdulrahman.project_4.Theater.model.Theater;
 import com.abdulrahman.project_4.Theater.repository.TheaterRepo;
+import com.abdulrahman.project_4.Theater.service.TheaterService;
 import com.abdulrahman.project_4.User.model.User;
 import com.abdulrahman.project_4.User.repository.UserRepo;
 import com.abdulrahman.project_4.exception.ApiException;
@@ -18,6 +21,8 @@ public class UserService {
     private final UserRepo userRepo;
     private final MovieRepo movieRepo;
     private final TheaterRepo theaterRepo;
+    private final TheaterService theaterService;
+    private final FoodRepo foodRepo;
 
     public List<User> getUser() {
         List<User> users = userRepo.findAll();
@@ -34,7 +39,6 @@ public class UserService {
         }
 
         temp_User.setName(user.getName());
-        temp_User.setIsPresent(user.getIsPresent());
         temp_User.setMovieID(user.getMovieID());
         temp_User.setTheaterID(user.getTheaterID());
 
@@ -55,24 +59,50 @@ public class UserService {
         return true;
     }
 
-    public void userBookMovie(Integer id) {
-        List<Movie> movies = movieRepo.findAll();
+    public void userBookMovie(Integer id, String title) {
+        Movie movieName = movieRepo.findMovieByTitle(title); // avatar
         User user = userRepo.findUserById(id);
-        List<Theater> theaters = theaterRepo.findAll();
+        Theater theater = theaterRepo.findTheaterById(movieName.getTheaterID());
 
-        if(movies.isEmpty()) {
-            throw new ApiException("Movie not available");d
+        if(movieName == null) {
+            throw new ApiException("Movie not found!");
         }
-        if(theaters.isEmpty()) {
-            throw new ApiException("No theater is available, try tomorrow");
+
+        if(theaterService.checkAvailability(theater.getId()) == 0) {
+            throw new ApiException("No seats available");
         }
-        Theater newTheater = new Theater();
 
-//        for (int i = 0; i < theaters.size(); i++) {
-//
-//            theaters.get(i).getCapacity() - 1;
-//        }
+        if(user == null) {
+            throw new ApiException("user wrong id");
+        }
 
+        user.setTheaterID(movieName.getTheaterID());
+        user.setMovieID(movieName.getId());
+        user.setTotal(user.getTotal() + movieName.getPrice());
+        theater.setCapacity(theater.getCapacity() - 1);
+        theaterRepo.save(theater);
+        userRepo.save(user);
     }
+
+    public void userBuyFood(Integer id, String name) {
+        User user = userRepo.findUserById(id);
+        Food food =  foodRepo.findFoodByName(name);
+
+        if(user == null) {
+            throw new ApiException("user wrong id");
+        }
+        if(food == null) {
+            throw new ApiException("food name not found!");
+        }
+
+        List<Food> oldFoodList = user.getFoodList();
+        oldFoodList.add(food);
+        int foodPrice = food.getPrice();
+        user.setTotal(user.getTotal()+foodPrice);
+        user.setFoodList(oldFoodList);
+        userRepo.save(user);
+    }
+
+
 
 }

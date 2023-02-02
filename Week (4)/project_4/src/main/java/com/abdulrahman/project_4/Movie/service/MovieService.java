@@ -2,6 +2,9 @@ package com.abdulrahman.project_4.Movie.service;
 
 import com.abdulrahman.project_4.Movie.model.Movie;
 import com.abdulrahman.project_4.Movie.repository.MovieRepo;
+import com.abdulrahman.project_4.Theater.model.Theater;
+import com.abdulrahman.project_4.Theater.repository.TheaterRepo;
+import com.abdulrahman.project_4.exception.ApiException;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -11,7 +14,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MovieService {
-    final MovieRepo movieRepo;
+    private final MovieRepo movieRepo;
+    private final TheaterRepo theaterRepo;
     public List<Movie> getMovie() {
         List<Movie> movies = movieRepo.findAll();
         return movies;
@@ -47,5 +51,16 @@ public class MovieService {
         }
         movieRepo.delete(temp_Movie);
         return true;
+    }
+
+
+
+    public String findTheaterByMovieName(String title) {
+        Movie movie = movieRepo.findMovieByTitle(title);
+        if(movie == null) {
+            throw new ApiException("Can't find the movie");
+        }
+        Theater theater = theaterRepo.findTheaterById(movie.getTheaterID());
+        return theater.getTitle();
     }
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,11 +19,11 @@ import lombok.NoArgsConstructor;
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
     @NotEmpty
     @NotNull
-    String name;
+    private String name;
     @NotNull
     @PositiveOrZero
-    Integer price;
+    private Integer price;
 }

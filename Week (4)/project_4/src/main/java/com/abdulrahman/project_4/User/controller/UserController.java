@@ -20,10 +20,9 @@ public class UserController {
         return userService.getUser();
     }
     @PostMapping("/add")
-    public ResponseEntity createUsers(@RequestBody @Valid User user) {
-
+    public ResponseEntity createUsers(@Valid @RequestBody User user) {
         userService.addUser(user);
-        return ResponseEntity.status(200).body("Added");
+        return ResponseEntity.status(200).body("User added");
     }
     @PutMapping("/update/{id}")
     public ResponseEntity updateUsers(@PathVariable Integer id, @RequestBody @Valid User user){
@@ -40,11 +39,15 @@ public class UserController {
 
     }
 
-    @PostMapping("/book-movie")
-    public ResponseEntity userBookMovie() {
-
-
+    @PutMapping("/booking/{userId}/{title}")
+    public ResponseEntity userBookMovie(@PathVariable Integer userId, @PathVariable String title) {
+        userService.userBookMovie(userId,title);
         return ResponseEntity.status(200).body("User booked a movie");
     }
 
+    @PutMapping("/buy-food/{userId}/{foodName}")
+    public ResponseEntity userBuyFood(@PathVariable Integer userId, @PathVariable String foodName) {
+        userService.userBuyFood(userId, foodName);
+        return ResponseEntity.status(200).body("User bought: " + foodName);
+    }
 }

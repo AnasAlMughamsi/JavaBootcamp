@@ -16,28 +16,34 @@ import java.util.List;
 public class TheaterController {
     final TheaterService theaterService;
     @GetMapping("/get")
-    public List<Theater> readMovies(){
-        return theaterService.getMovie();
+    public List<Theater> getTheaters(){
+        return theaterService.getTheater();
     }
     @PostMapping("/add")
-    public ResponseEntity createMovies(@RequestBody @Valid Theater theater) {
+    public ResponseEntity addTheater(@RequestBody @Valid Theater theater) {
 
-        theaterService.addMovie(theater);
+        theaterService.addTheater(theater);
         return ResponseEntity.status(200).body("Added");
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity updateMovies(@PathVariable Integer id, @RequestBody @Valid Theater theater, Errors errors){
+    public ResponseEntity updateTheaters(@PathVariable Integer id, @RequestBody @Valid Theater theater){
 
-        theaterService.editMovie(id, theater);
-        return ResponseEntity.status(200).body("Movie modified!");
+        theaterService.editTheater(id, theater);
+        return ResponseEntity.status(200).body("Theater modified!");
 
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteMovies(@PathVariable Integer id){
+    public ResponseEntity deleteTheaters(@PathVariable Integer id){
 
-        theaterService.deleteMovie(id);
-        return ResponseEntity.status(200).body("Movie deleted!");
+        theaterService.deleteTheater(id);
+        return ResponseEntity.status(200).body("Theater deleted!");
 
+    }
+
+    @GetMapping("/theater-seats/{id}")
+    public ResponseEntity checkIfTheaterIsAvailable(@PathVariable Integer id){
+        Integer theater = theaterService.checkAvailability(id);
+        return ResponseEntity.status(200).body("Theater seats: " +  theater);
     }
 
 }

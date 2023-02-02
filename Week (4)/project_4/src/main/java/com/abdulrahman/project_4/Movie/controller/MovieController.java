@@ -35,4 +35,10 @@ public class MovieController {
         return ResponseEntity.status(200).body("Movie deleted!");
     }
 
+    @GetMapping("/get-theater-title/{title}")
+    public ResponseEntity readMovies(@PathVariable String title){
+        String theaterTitle =  movieService.findTheaterByMovieName(title);
+        return ResponseEntity.status(200).body("Theater name: " + theaterTitle);
+    }
+
 }
