@@ -5,6 +5,7 @@ import com.example.movie.exception.ApiException;
 import com.example.movie.model.Director;
 import com.example.movie.model.Movie;
 import com.example.movie.repository.DirectorRepository;
+import com.example.movie.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class DirectorService {
 
     private final DirectorRepository directorRepository;
-
+    private final MovieRepository movieRepository;
     public List<Director> getDirectors() {
         return directorRepository.findAll();
     }
@@ -41,4 +42,13 @@ public class DirectorService {
         }
         directorRepository.delete(director);
     }
+
+//    public Director directorByMovieTitle(String title) {
+//        Movie movieTitle = movieRepository.findMovieByName(title);
+//        Director director = new Director();
+//        if(director.getId() == movieTitle.getDirectorID()) {
+//            return director.getName();
+//        }
+//        return "can't find the director with that name";
+//    }
 }

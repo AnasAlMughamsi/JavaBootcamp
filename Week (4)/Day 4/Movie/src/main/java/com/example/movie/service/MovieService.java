@@ -2,7 +2,9 @@ package com.example.movie.service;
 
 
 import com.example.movie.exception.ApiException;
+import com.example.movie.model.Director;
 import com.example.movie.model.Movie;
+import com.example.movie.repository.DirectorRepository;
 import com.example.movie.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,7 @@ import java.util.List;
 public class MovieService {
 
     private final MovieRepository movieRepository;
-
+    private final DirectorRepository directorRepository;
     public List<Movie> getMovies() {
         return movieRepository.findAll();
     }
@@ -80,5 +82,19 @@ public class MovieService {
             throw new ApiException("Can't find movie duration with this title");
         }
         return movie;
+    }
+
+
+    public Director findDirectorByMovieTitle(String title) {
+        Movie movie = movieRepository.findMovieByName(title);
+        if(movie == null) {
+            throw new ApiException("Can't find movie title");
+        }
+        Director directorName = directorRepository.findDirectorById(movie.getDirectorID());
+        if(movie.getDirectorID() == directorName.getId()) {
+            return directorName;
+
+        }
+        throw new ApiException("Can't find the director by the movie name");
     }
 }

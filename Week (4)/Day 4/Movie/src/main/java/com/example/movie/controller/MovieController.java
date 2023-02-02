@@ -71,4 +71,10 @@ public class MovieController {
         return ResponseEntity.status(200).body("Movie duration: " + movie.getDuration());
     }
 
+    @GetMapping("/get-director/{title}")
+    public ResponseEntity getDirectorByMovieTitle(@PathVariable String title) {
+        Director director = movieService.findDirectorByMovieTitle(title);
+        return ResponseEntity.status(200).body("Director name: " + director.getName());
+    }
+    
 }

@@ -17,6 +17,4 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
     @Query("select rate from Movie rate where rate.rating > ?1")
     List<Movie> findMovieByRateAndMore(int rate);
 
-
-
 }
