@@ -27,7 +27,6 @@ public class DirectorService {
 
     public void updateDirector(Integer id, Director updateDirector) {
         Director director = directorRepository.findDirectorById(id);
-
         if(director == null) {
             throw new ApiException("Can't find the director");
         }
@@ -49,7 +48,7 @@ public class DirectorService {
             throw new ApiException("Can't find direction with this id");
         }
         List<Movie> movies = movieRepository.findAll();
-        for (Integer i = 0; i < movies.size(); i++) {
+        for (int i = 0; i < movies.size(); i++) {
             if(movies.get(i).getDirectorID().equals(directorId.getId())) {
                 return movies;
             }
