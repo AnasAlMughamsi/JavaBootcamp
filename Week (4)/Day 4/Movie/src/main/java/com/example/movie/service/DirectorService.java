@@ -49,8 +49,10 @@ public class DirectorService {
             throw new ApiException("Can't find direction with this id");
         }
         List<Movie> movies = movieRepository.findAll();
-        if(movies.contains(directorId)) {
-            return movies;
+        for (Integer i = 0; i < movies.size(); i++) {
+            if(movies.get(i).getDirectorID().equals(directorId.getId())) {
+                return movies;
+            }
         }
         throw new ApiException("This director has no movies");
     }
