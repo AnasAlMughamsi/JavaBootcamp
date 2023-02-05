@@ -84,7 +84,6 @@ public class MovieService {
         return movie;
     }
 
-
     public Director findDirectorByMovieTitle(String title) {
         Movie movie = movieRepository.findMovieByName(title);
         if(movie == null) {
