@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "teachers")
 @Data
@@ -24,4 +26,8 @@ public class Teacher {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "teacher_id")
     @PrimaryKeyJoinColumn
     Address address;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+//    @JoinColumn(name = "teacher_id")
+    List<Course> course;
 }

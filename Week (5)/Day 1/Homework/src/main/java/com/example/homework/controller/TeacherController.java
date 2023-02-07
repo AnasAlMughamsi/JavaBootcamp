@@ -46,4 +46,15 @@ public class TeacherController {
         teacherService.addTeacherAddress(td);
         return ResponseEntity.status(200).body("Teacher Address added!");
     }
+
+    // update teacher address here
+    // delete teacher address here
+
+    @PostMapping("/{teacher_id}/course/{course_id}")
+    public ResponseEntity assignTeacherCourse(@PathVariable Integer teacher_id, @PathVariable Integer course_id) {
+        teacherService.assignTeacherCourse(teacher_id, course_id);
+        return ResponseEntity.status(200).body("Teacher assign to course!");
+
+    }
+
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,5 +19,5 @@ public class Merchant {
     private Integer id;
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "merchant")
-    private Set<Branch> branches;
+    private List<Branch> branches;
 }
