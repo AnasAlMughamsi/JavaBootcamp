@@ -52,4 +52,26 @@ public class CustomerService {
         CustomerDetails customerDetails = new CustomerDetails(null, cd.getAge(), cd.getPhoneNumber(), cd.getGender(), customer);
         customerDetailsRepository.save(customerDetails);
     }
+
+    public void updateCustomerDetails(CustomerDetailsDTO updateCD) {
+        CustomerDetails customerDetails = customerDetailsRepository.findCustomerDetailsById(updateCD.getCustomer_id());
+        if(customerDetails == null) {
+            throw new ApiException("Customer not found!");
+        }
+//        updateCD.setCustomer_id(customerDetails.getId());
+        customerDetails.setAge(updateCD.getAge());
+        customerDetails.setGender(updateCD.getGender());
+        customerDetails.setPhoneNumber(updateCD.getPhoneNumber());
+
+        customerDetailsRepository.save(customerDetails);
+    }
+
+    public void deleteCustomerDetails(Integer id) {
+        CustomerDetails customerDetails = customerDetailsRepository.findCustomerDetailsById(id);
+        if(customerDetails == null) {
+            throw new ApiException("Customer not found!");
+        }
+        customerDetailsRepository.delete(customerDetails);
+    }
+
 }

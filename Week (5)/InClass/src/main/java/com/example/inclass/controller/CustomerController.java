@@ -4,6 +4,7 @@ package com.example.inclass.controller;
 import com.example.inclass.dto.CustomerDetailsDTO;
 import com.example.inclass.model.Customer;
 import com.example.inclass.service.CustomerService;
+import jakarta.validation.Path;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,15 +38,28 @@ public class CustomerController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteMovie(@PathVariable Integer id) {
+    public ResponseEntity deleteCustomer(@PathVariable Integer id) {
         customerService.deleteCustomer(id);
         return ResponseEntity.status(200).body("Customer deleted!!");
     }
 
 
+    // method relate it to customer details
     @PostMapping("/add-details")
     public ResponseEntity addDetails(@Valid @RequestBody CustomerDetailsDTO ct) {
         customerService.addCustomerDetails(ct);
         return ResponseEntity.status(200).body("Details added!!!");
+    }
+
+    @PutMapping("/update-details")
+    public ResponseEntity updateDetails(@Valid @RequestBody CustomerDetailsDTO ct) {
+        customerService.updateCustomerDetails(ct);
+        return ResponseEntity.status(200).body("update details!");
+    }
+
+    @DeleteMapping("/delete-details/{id}")
+    public ResponseEntity deleteDetails(@PathVariable Integer id) {
+        customerService.deleteCustomerDetails(id);
+        return ResponseEntity.status(200).body("customer deleted!");
     }
 }
