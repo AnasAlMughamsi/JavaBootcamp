@@ -85,4 +85,13 @@ public class TeacherService {
         course.setTeacher(teacher);
         courseRepository.save(course);
     }
+
+    public Teacher teacherDetails(Integer id) {
+        Teacher teacher = teacherRepository.findTeacherById(id);
+        if(teacher == null) {
+            throw new ApiException("Teacher not found");
+        }
+
+        return teacher;
+    }
 }

@@ -41,8 +41,8 @@ public class TeacherController {
         return ResponseEntity.status(200).body("teacher deleted!!");
     }
 
-    @PostMapping("/add-taecher-address/")
-    public ResponseEntity addAddressTeacher(@Valid @RequestBody TeacherAddressDTO td) {
+    @PostMapping("/add-taecher-address/{id}")
+    public ResponseEntity addAddressTeacher(@PathVariable Integer id, @Valid @RequestBody TeacherAddressDTO td) {
         teacherService.addTeacherAddress(td);
         return ResponseEntity.status(200).body("Teacher Address added!");
     }
@@ -57,4 +57,10 @@ public class TeacherController {
 
     }
 
+    @GetMapping("/teacher-details/{id}")
+    public ResponseEntity teacherDetails(@PathVariable Integer teacher_id) {
+        Teacher teacher = teacherService.teacherDetails(teacher_id);
+        return ResponseEntity.status(200).body("Teacher details: " + teacher.getAddress() + "\n" + teacher.getCourse());
+
+    }
 }

@@ -27,6 +27,6 @@ public class Address {
     @OneToOne
     @MapsId
     @JsonIgnore
-    private Teacher teacher_id;
+    private Teacher teacher;
 
 }

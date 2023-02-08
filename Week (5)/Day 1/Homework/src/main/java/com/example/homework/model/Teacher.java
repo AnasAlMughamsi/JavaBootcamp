@@ -23,7 +23,7 @@ public class Teacher {
     @NotEmpty
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "teacher_id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "teacher")
     @PrimaryKeyJoinColumn
     Address address;
 
