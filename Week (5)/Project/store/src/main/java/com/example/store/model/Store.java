@@ -1,6 +1,5 @@
-package com.example.homework.model;
+package com.example.store.model;
 
-import com.example.homework.repository.AddressRepository;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -9,12 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
-@Table(name = "teachers")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher {
+@Entity
+public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +21,13 @@ public class Teacher {
     @NotEmpty
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "teacher")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "store")
     @PrimaryKeyJoinColumn
-    private Address address;
+    Location location;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
-//    @JoinColumn(name = "teacher_id")
-    private List<Course> course;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Book> books;
+
+    @ManyToMany(mappedBy = "stores")
+    private List<Customer> customers;
 }
