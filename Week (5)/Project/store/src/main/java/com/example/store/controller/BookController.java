@@ -59,8 +59,8 @@ public class BookController {
         return ResponseEntity.status(200).body(book);
     }
 
-    @GetMapping("/genre/{genre}/")
-    public ResponseEntity bookInfo(@PathVariable String genre) {
+    @GetMapping("/genre/{genre}")
+    public ResponseEntity bookGenre(@PathVariable String genre) {
         List<Book> booksGenre = bookService.allBookGenre(genre);
         return ResponseEntity.status(200).body(booksGenre);
     }

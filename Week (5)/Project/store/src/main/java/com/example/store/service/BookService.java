@@ -80,11 +80,11 @@ public class BookService {
     }
 
     public List<Book> allBookGenre(String genre) {
-        List<Book> genre1 = bookRepository.findBooksByGenre(genre);
-        if(genre1 == null) {
+        List<Book> booksGenre = bookRepository.findBooksByGenre(genre);
+        if(booksGenre.isEmpty()) {
             throw new ApiException("Can't find book with this genre, try again");
         }
 
-        return genre1;
+        return booksGenre;
     }
 }
