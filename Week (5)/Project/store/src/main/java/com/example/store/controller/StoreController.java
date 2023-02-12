@@ -1,5 +1,6 @@
 package com.example.store.controller;
 
+import com.example.store.dto.StoreLocationDTO;
 import com.example.store.model.Book;
 import com.example.store.model.Customer;
 import com.example.store.model.Store;
@@ -35,13 +36,32 @@ public class StoreController {
         storeService.updateStore(id, updateStore);
         return ResponseEntity.status(200).body("Store updated!");
     }
-
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteStore(@PathVariable Integer id) {
         storeService.deleteStore(id);
         return ResponseEntity.status(200).body("Store deleted!!");
     }
 
+    // =============================== DTO - START =============================== //
+
+    @PostMapping("/add-location")
+    public ResponseEntity addDetails(@Valid @RequestBody StoreLocationDTO storeDTO) {
+        storeService.addStoreLocation(storeDTO);
+        return ResponseEntity.status(200).body("Store location added!");
+    }
+
+    @PutMapping("/update-location")
+    public ResponseEntity updateDetails(@Valid @RequestBody StoreLocationDTO storeDTO) {
+        storeService.updateLocationStore(storeDTO);
+        return ResponseEntity.status(200).body("update store location!");
+    }
+
+    @DeleteMapping("/delete-location/{id}")
+    public ResponseEntity deleteDetails(@PathVariable Integer id) {
+        storeService.deleteStoreLocation(id);
+        return ResponseEntity.status(200).body("store location deleted!");
+    }
+    // =============================== DTO - END =============================== //
     @GetMapping("/get-customer/{id}")
     public ResponseEntity showCustomers(@PathVariable Integer id) {
         List<Customer> customers = storeService.showCustomers(id);
