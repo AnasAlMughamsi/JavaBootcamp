@@ -12,5 +12,5 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     List<Todo> findAllByUserId(Integer id);
-
+    Todo findTodoById(Integer id);
 }
