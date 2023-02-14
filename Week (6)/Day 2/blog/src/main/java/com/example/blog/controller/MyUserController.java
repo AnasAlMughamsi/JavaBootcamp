@@ -46,5 +46,11 @@ public class MyUserController {
     }
 
 
+    @GetMapping("/blogs/{user_id}")
+    public ResponseEntity<ApiResponse> getUserBlogs(@PathVariable Integer user_id) {
+        myUserService.getAllUserBlogs(user_id);
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Welcome back admin!", 201));
+    }
+
 
 }

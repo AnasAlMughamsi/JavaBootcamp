@@ -1,6 +1,7 @@
 package com.example.blog.service;
 
 import com.example.blog.api.ApiException;
+import com.example.blog.model.Blog;
 import com.example.blog.model.MyUser;
 import com.example.blog.repository.MyUserRepository;
 import lombok.RequiredArgsConstructor;
@@ -51,6 +52,15 @@ public class MyUserService {
             throw new ApiException("user not found, wrong id");
         }
         myUserRepository.delete(myUser);
+    }
+
+    public List<Blog> getAllUserBlogs(Integer id) {
+        MyUser myUser = myUserRepository.findMyUserById(id);
+        if(myUser == null) {
+            throw new ApiException("user not found, wrong id");
+        }
+
+        return myUser.getBlogList();
     }
 
 
