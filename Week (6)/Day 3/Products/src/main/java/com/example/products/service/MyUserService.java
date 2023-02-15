@@ -55,7 +55,7 @@ public class MyUserService {
     }
 
 
-    public List<Order> getCustomerOrders(Integer id) {
+    public List<Order> getCustomerOrders(Integer id, MyUser user) {
         MyUser myUser = myUserRepository.findMyUserById(id);
         if(myUser == null) {
             throw new ApiException("user not found, wrong id");

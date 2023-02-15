@@ -73,6 +73,17 @@ public class OrderService {
         orderRepository.delete(order);
     }
 
+    public void assignOrderToCustomer(MyUser customer, Integer customer_id, Integer order_Id) {
+        Order order = orderRepository.findOrderById(order_Id);
+        MyUser myUser = myUserRepository.findMyUserById(customer_id);
+        if(order == null || myUser == null) {
+            throw new ApiException("order or customer not found!");
+        }
+
+        myUser.getOrderList().add(order);
+        order.setCustomer(myUser);
+        myUserRepository.save(myUser);
+    }
     public void changeStatus(Integer order_Id, String newStatus, MyUser admin) {
         Order order = orderRepository.findOrderById(order_Id);
         if(order == null) {

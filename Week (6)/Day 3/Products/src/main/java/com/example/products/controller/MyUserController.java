@@ -50,8 +50,7 @@ public class MyUserController {
 
 
     @GetMapping("/all-orders/{customer_id}")
-    public ResponseEntity getAllCustomerOrders(@PathVariable Integer customer_id) {
-//        myUserService.getCustomerOrders(customer_id);
-        return ResponseEntity.status(HttpStatus.OK).body(myUserService.getCustomerOrders(customer_id));
+    public ResponseEntity getAllCustomerOrders(@PathVariable Integer customer_id, @AuthenticationPrincipal MyUser myUser) {
+        return ResponseEntity.status(HttpStatus.OK).body(myUserService.getCustomerOrders(customer_id, myUser));
     }
 }
