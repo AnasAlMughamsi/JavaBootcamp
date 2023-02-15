@@ -4,6 +4,7 @@ package com.example.products.controller;
 import com.example.products.api.ApiResponse;
 import com.example.products.model.MyUser;
 import com.example.products.service.MyUserService;
+import com.example.products.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import java.util.List;
 public class MyUserController {
 
     private final MyUserService myUserService;
+    private final OrderService orderService;
 
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@Valid @RequestBody MyUser myUser) {
@@ -48,6 +50,11 @@ public class MyUserController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("User deleted!", 201));
     }
 
+    @PostMapping("/{customer_id}/add-order/{order_id}")
+    public ResponseEntity<ApiResponse> assignOrderToCustomer(@PathVariable Integer customer_id, @PathVariable Integer order_id, @AuthenticationPrincipal MyUser myUser) {
+        orderService.assignOrderToCustomer(myUser, customer_id, order_id);
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("order assign to customer", 200));
+    }
 
     @GetMapping("/all-orders/{customer_id}")
     public ResponseEntity getAllCustomerOrders(@PathVariable Integer customer_id, @AuthenticationPrincipal MyUser myUser) {
